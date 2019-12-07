@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <h2>点击次数：{{message}}</h2>
+  <button @click="handleAdd(123,$event)">+</button>
+  <button @click="">-</button>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: '你好',
+      counter: 0
+    },
+    methods: {
+      handleAdd(aa, event) {
+        console.log(aa, event)
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

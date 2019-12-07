@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <!--当v-if：条件为false时，包含v-if的指令根本不会存在dom中-->
+  <h2 v-if="isIf" id="aaa">{{message}}</h2>
+  <!--当v-show:条件为false时，v-show只是给我们的元素添加了一个行内样式：display：none-->
+  <!--  <h2 id="bbb" style="display: none;">你好！</h2>-->
+  <h2 v-show="isIf" id="bbb">{{message}}</h2>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      message: '你好！',
+      isIf: true
+    }
+  })
+
+</script>
+</body>
+</html>

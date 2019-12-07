@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:v-on="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<style>
+  [v-cloak] {
+    display: none;
+  }
+</style>
+<body>
+<div id="app" v-cloak>
+  <h2>{{counter}}</h2>
+  <!--  v-on绑定事件监听器
+         <button @click="increment">+</button>
+         <button v-on:click="increment">+</button>
+   -->
+  <button v-on:click="increment">+</button>
+  <button @click="decrement">-</button>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      counter: 0
+    },
+    methods: {
+      increment() {
+        this.counter++;
+      },
+      // subtraction
+      decrement() {
+        this.counter--;
+      }
+    }
+  })
+
+</script>
+</body>
+</html>

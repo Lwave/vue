@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+<div id="app">
+  <ul>
+    <li v-for="item in letters" :key="item">{{item}}</li>
+  </ul>
+  <button @click="btnClick">按钮</button>
+</div>
+<script src="../js/vue.min.js"></script>
+<script>
+  const app = new Vue({
+    el: "#app",
+    data: {
+      letters: [
+        'A', 'B', 'C', 'D', 'E', 'F'
+      ]
+    },
+    methods: {
+      btnClick() {
+        //1.push方法:在最后面加
+        /* this.letters.push("aaa");*/
+        //2.通过索引值修改数组中的元素------>不是响应式的
+        /* this.letters[0] = 'aaa';*/
+        //3.pop():从最后一个删除
+        /* this.letters.pop();*/
+        //4.shift():从第一个删除
+        /*this.letters.shift();*/
+        //5.unshift():在最前面加
+        /*this.letters.unshift("aaa",'bbb','ccc')*/
+        //6.splice()：删除元素、插入元素、替换元素
+        //1>删除元素：第二个元素传入你要删除几个元素
+        /*this.letters.splice(1,2);*/
+        //2>替换元素:第二个元素传入你要替换几个元素  //修改第一个元素
+       /* this.letters.splice(0, 1, 's');*/
+        //3>插入元素:第二个参数，传入0，并且后面跟上要插入的元素
+         /* this.letters.splice(1,0,'x','y','z')*/
+        //7.sort():排序
+        /*   this.letters.sort();*/
+        //8.reverse()：翻转
+        /* this.letters.reverse();*/
+
+        /*----------------修改值------------------------------------------------------------------*/
+        //1.修改第一个元素
+       /* this.letters.splice(0, 1, 's');*/
+        //2.通过索引值修改数组中的元素------>不是响应式的
+        /* this.letters[0] = 'aaa';*/
+        //3.set----->需修改的对象，索引值，修改后的值
+        Vue.set(this.letters,0,'123');
+      }
+    }
+  })
+
+</script>
+</body>
+</html>
